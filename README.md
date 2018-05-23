@@ -118,9 +118,13 @@ There are several ways to execute the code cells in your notebook:
 # Useful Links:
 
 [Watson Data Studio](https://www.ibm.com/cloud/watson-studio)
+
 [Watson Knowledge Catalog](https://www.ibm.com/cloud/watson-knowledge-catalog)
+
 [Watson Machine Learning](https://www.ibm.com/cloud/machine-learning)
+
 [Deep Learning](https://www.ibm.com/cloud/deep-learning)
+
 [Analytics Engine](https://www.ibm.com/cloud/analytics-engine)
 
 # License
