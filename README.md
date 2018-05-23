@@ -111,6 +111,21 @@ There are several ways to execute the code cells in your notebook:
     
 ## 7. Analyze the results
 
+# Troubleshooting
+
+[See DEBUGGING.md.](DEBUGGING.md)
+
+# Useful Links:
+
+[Watson Data Studio](https://www.ibm.com/cloud/watson-studio)
+[Watson Knowledge Catalog](https://www.ibm.com/cloud/watson-knowledge-catalog)
+[Watson Machine Learning](https://www.ibm.com/cloud/machine-learning)
+[Deep Learning](https://www.ibm.com/cloud/deep-learning)
+[Analytics Engine](https://www.ibm.com/cloud/analytics-engine)
+
+# License
+
+[Apache 2.0](LICENSE)
 
 
 
