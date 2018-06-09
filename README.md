@@ -10,13 +10,20 @@ After completing this pattern, the developer will understand how to :
 
 # Architecture Diagram
 
+![](https://github.com/RK-Sharath/demand_forecasting_using_deep_learning/blob/master/doc/source/images/architecture.PNG)
 
-
-
-
+* User uploads the first input csv file onto object storage.
+* User executes the notebook which will create a deep learning model and churn out forecasts.
+* User uploads the second input file onto object storage.
+* User runs the notebook again using transfer learn of deep learning model and generates the forecasts.
+* User will learn how to create a deep learning model to be used on different data sets & achieve good accuracy.
 
 
 ## Included components
+
+* [Keras](https://keras.io/): The Python Deep Learning library.
+
+* [Tensorflow](https://www.tensorflow.org/): An open-source software library for Machine Intelligence.
 
 * [IBM Watson Studio](https://www.ibm.com/cloud/watson-studio): Analyze data using RStudio, Jupyter, and Python in a configured, collaborative environment that includes IBM value-adds, such as managed Spark.
 
@@ -115,21 +122,13 @@ There are several ways to execute the code cells in your notebook:
 
 [See DEBUGGING.md.](DEBUGGING.md)
 
-# Useful Links:
+# Learn more
 
-[Watson Data Studio](https://www.ibm.com/cloud/watson-studio)
-
-[Watson Knowledge Catalog](https://www.ibm.com/cloud/watson-knowledge-catalog)
-
-[Watson Machine Learning](https://www.ibm.com/cloud/machine-learning)
-
-[Deep Learning](https://www.ibm.com/cloud/deep-learning)
-
-[Analytics Engine](https://www.ibm.com/cloud/analytics-engine)
+* **Data Analytics Code Patterns**: Enjoyed this Code Pattern? Check out our other [Data Analytics Code Patterns](https://developer.ibm.com/code/technologies/data-science/)
+* **AI and Data Code Pattern Playlist**: Bookmark our [playlist](https://www.youtube.com/playlist?list=PLzUbsvIyrNfknNewObx5N7uGZ5FKH0Fde) with all of our Code Pattern videos
+* **Watson Studio**: Master the art of data science with IBM's [Watson Studio](https://www.ibm.com/cloud/watson-studio)
+* **Spark on IBM Cloud**: Need a Spark cluster? Create up to 30 Spark executors on IBM Cloud with our [Spark service](https://console.bluemix.net/catalog/services/apache-spark)
 
 # License
 
 [Apache 2.0](LICENSE)
-
-
-
