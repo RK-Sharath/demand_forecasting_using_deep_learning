@@ -2,11 +2,23 @@
 
 This pattern demonstrated how to forecast the demand for cash vending machines using Deep Learning. It is important for financial institutions to ensure there are no cashouts in the cash vending machines which can increase the revenue and enhance customer experience. The Long Short-Term Memory, or LSTM, network is a type of Recurrent Neural Network. Recurrent Neural Networks, or RNNs for short, are a special type of neural network designed for sequence problems. We will be creating a sequence prediction LSTM model which can predict the next value given an input sequence.
 
+But why Deep Learning for this? We will need to mimic human behaviour of cash withdrawals by remembering the recent past and use the learnings to pedict the future. We will create the Neural Network model with recurrent layers which will process the information through the looping architecture of the network and generate the corresponding output which will produce accurate forecast of cash demand which will inturn optimize cash replenishments of the cash vending machines. 
+
+> A Brief about LSTM
+
+'The Long Short-Term Memory, or LSTM, network is a type of Recurrent Neural Network. Recurrent Neural Networks, or RNNs for short, are a special type of neural network designed for sequence problems. Given a standard feedforward MLP network, an RNN can be thought of as the addition of loops to the architecture. For example, in a given layer, each neuron may pass its signal laterally (sideways) in addition to forward to the next layer. The output of the network may feedback as an input to the network with the next input vector and so on. The recurrent connections add state or memory to the network and allow it to learn and harness the ordered nature of observations within input sequences. Because of this ability to learn long term correlations in a sequence, LSTM networks obviate the need for a pre-specified time window and are capable of accurately modelling complex multivariate sequences. There are a number of RNNs, but it is the LSTM that delivers on the promise of RNNs for sequence prediction. It is why there is so much buzz and application of LSTMs at the moment.'
+
+We will develop a deep learning model using Recurrent Neural Network which will produce the sequence per below.
+
+![](https://github.com/RK-Sharath/demand_forecasting_using_deep_learning/blob/master/doc/source/images/seq_pred.PNG)
+
 After completing this pattern, the developer will understand how to :
 
 * Create a Deep Learning model using LSTM.
 * Tuning the hyper parameters of the model.
 * Transfer learning using LSTM.
+* Generate new forecasts on new data using the same model & weights.
+* Cross Validation technique for evaluating accuracy.
 
 # Architecture Diagram
 
@@ -47,21 +59,29 @@ NA
 Follow these steps to setup and run this code pattern. The steps are
 described in detail below.
 
-1. [Sign up for IBM Cloud](#1-sign-up-for-ibm-cloud)
-1. [Sign up for Watson Studio](#2-sign-up-for-watson-studio)
+1. [Create an account with IBM Cloud](#1-create-an-account-with-ibm-cloud)
+1. [Create a new Watson Studio project](#2-create-a-new-watson-studio-project)
 1. [Create the notebook](#3-create-the-notebook)
 1. [Add the data](#4-add-the-data)
 1. [Insert the dataframe](#5-insert-the-dataframe)
 1. [Run the notebook](#6-run-the-notebook)
 1. [Analyze the results](#7-analyze-the-results)
 
-## 1. Sign up for IBM Cloud
+## 1. Create an account with IBM Cloud
 
 Sign up for IBM [**Cloud**](https://console.bluemix.net/). By clicking on create a free account you will get 30 days trial account.
 
-## 2. Sign up for Watson Studio
+## 2. Create a new Watson Studio project
 
-Sign up for IBM's [Watson Studio](http://dataplatform.ibm.com/). By creating a project in Watson Studio a free tier ``Object Storage`` service will be created in your IBM Cloud account. Choose the storage type as Object Storage (Swift API) for this code pattern.
+Sign up for IBM's [Watson Studio](http://dataplatform.ibm.com/). 
+
+Click on New project and select Data Science as per below.
+
+![](https://github.com/RK-Sharath/demand_forecasting_using_deep_learning/blob/master/doc/source/images/new_project.PNG)
+
+Define the project by giving a Name and hit 'Create'.
+
+![](https://github.com/RK-Sharath/demand_forecasting_using_deep_learning/blob/master/doc/source/images/define_project.PNG)
 
 ## 3. Create the notebook
 
@@ -70,11 +90,11 @@ Sign up for IBM's [Watson Studio](http://dataplatform.ibm.com/). By creating a p
 * Select the `From URL` tab.
 * Enter a name for the notebook.
 * Optionally, enter a description for the notebook.
-* Enter this Notebook URL: https://github.ibm.com/sharrkum/fraud_prediction_using_imbalanced_data/blob/master/notebook/Fraud_Detection.ipynb
-* Select the free Anaconda runtime.
+* Enter this Notebook URL: https://github.com/RK-Sharath/demand_forecasting_using_deep_learning/blob/master/notebook/LSTM_PATTERN.ipynb
+* Select the runtime of (4vCPU and 16GBRAM).
 * Click the `Create` button.
 
-![](https://github.ibm.com/sharrkum/fraud_prediction_using_imbalanced_data/blob/master/image/create_notebook.PNG)
+![](https://github.com/RK-Sharath/demand_forecasting_using_deep_learning/blob/master/doc/source/images/create_notebook.PNG)
 
 ## 4. Add the data
 
@@ -82,9 +102,9 @@ Use `Find and Add Data` (look for the `10/01` icon)
 and its `Files` tab. From there you can click
 `browse` and add data files from your computer.
 
-![](https://github.ibm.com/sharrkum/fraud_prediction_using_imbalanced_data/blob/master/image/add_file.png)
+![](https://github.com/RK-Sharath/demand_forecasting_using_deep_learning/blob/master/doc/source/images/add_file.png)
 
-Note: The data file is in the `data` directory
+Note: The data files are in the `data` directory. We need to insert sample_data.csv first followed by holdout_sample.csv as called out in the notebook. 
 
 ## 5. Insert the DataFrame
 
@@ -92,7 +112,7 @@ Select the cell below `2. Read the Data & convert it into Dataframe` section in 
 
 Use `Find and Add Data` (look for the `10/01` icon) and its `Files` tab. You should see the file names uploaded earlier. Make sure your active cell is the empty one created earlier. Select `Insert to code` (below your file name). Click `Insert pandas DataFrame` from drop down menu.
 
-![](https://github.ibm.com/sharrkum/fraud_prediction_using_imbalanced_data/blob/master/image/insert%20df.PNG)
+![](https://github.com/RK-Sharath/demand_forecasting_using_deep_learning/blob/master/doc/source/images/insert%20df.PNG)
 
 ## 6. Run the notebook
 
@@ -117,6 +137,41 @@ There are several ways to execute the code cells in your notebook:
     continue executing all cells that follow.
     
 ## 7. Analyze the results
+
+In this section, we will review the accuracy score of the model which has generated similar 'Mean Squared Error' values for training & validation data. We have achieved > 90% accuracy (Mean Absolute Percentage Error) with minimal training and optimal hyperparameters tuning which has resulted in striking a balance between accuracy & computation time. 
+
+![](https://github.com/RK-Sharath/demand_forecasting_using_deep_learning/blob/master/doc/source/images/accuracy_check.PNG)
+
+We can also see the loss metric (error score) for training & validation data has a steady descent and converge at the end which means the learning from training data is effectively tested on the validation data. The optimum accuracy has been achieved with the configueration of the deep learning neural network architecture. 
+
+![](https://github.com/RK-Sharath/demand_forecasting_using_deep_learning/blob/master/doc/source/images/loss.PNG)
+
+The accuracy can be further enhanced using cross validation & Grid Search techniques however they are computationally intensive and should be performed on a 'GPU'.
+
+We can save the entire model, weights of the model, model architecture etc onto the storage to be reused at a later stage. 
+
+We have also demonstrated another concept called 'Transfer Learning' where we have used the trained model on new data and were able to generate accurate results. This is helpful if you have to generate forecasts quickly without spending time on training and not compromise on accuracy. 'Re-training would be required as per the variance in the data.'
+
+## Some of the most commonly used parameters in a Deep Learning Model
+
+* One epoch = one forward pass and one backward pass of all the training examples
+
+* Batch Size = The number of training examples in one forward/backward pass. The higher the batch size, the more memory space you'll need.
+
+* Number of iterations = number of passes, each pass using [batch size] number of examples. To be clear, one pass = one forward pass + one backward pass (we do not count the forward pass and backward pass as two different passes). Example: if you have 1000 training examples, and your batch size is 500, then it will take 2 iterations to complete 1 epoch.
+
+* Neurons = memory cells or computation cells or transmitters
+
+* Activation = Which controls the initializing of weights/neurons. (most popular ones are Tanh(Range(-1,1)) & ReLu(Range(0,1))
+
+* Loss/Metric = A metric is a function that is used to judge the performance of your model. Metric functions are to be supplied in the metrics parameter when a model is compiled.
+
+* Compilation = consolidate the learnings of the model from different layers. 
+
+* Optimizers = Which controls the learning ability of the model. (Adam & RMSprop are widely used for regression problems)
+
+* Stateful/Stateless = Whether to remember the previous value to predict next value. 
+
 
 # Troubleshooting
 
