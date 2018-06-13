@@ -1,4 +1,4 @@
-# Demand forecasting using deep learning
+# Demand forecasting using Deep Learning
 
 This pattern demonstrated how to forecast the demand for cash vending machines using Deep Learning. It is important for financial institutions to ensure there are no cashouts in the cash vending machines which can increase the revenue and enhance customer experience. The Long Short-Term Memory, or LSTM, network is a type of Recurrent Neural Network. Recurrent Neural Networks, or RNNs for short, are a special type of neural network designed for sequence problems. We will be creating a sequence prediction LSTM model which can predict the next value given an input sequence.
 
@@ -6,7 +6,7 @@ But why Deep Learning for this? We will need to mimic human behaviour of cash wi
 
 > A Brief about LSTM
 
-'The Long Short-Term Memory, or LSTM, network is a type of Recurrent Neural Network. Recurrent Neural Networks, or RNNs for short, are a special type of neural network designed for sequence problems. Given a standard feedforward MLP network, an RNN can be thought of as the addition of loops to the architecture. For example, in a given layer, each neuron may pass its signal laterally (sideways) in addition to forward to the next layer. The output of the network may feedback as an input to the network with the next input vector and so on. The recurrent connections add state or memory to the network and allow it to learn and harness the ordered nature of observations within input sequences. Because of this ability to learn long term correlations in a sequence, LSTM networks obviate the need for a pre-specified time window and are capable of accurately modelling complex multivariate sequences. There are a number of RNNs, but it is the LSTM that delivers on the promise of RNNs for sequence prediction. It is why there is so much buzz and application of LSTMs at the moment.'
+`The Long Short-Term Memory, or LSTM, network is a type of Recurrent Neural Network. Recurrent Neural Networks, or RNNs for short, are a special type of neural network designed for sequence problems. Given a standard feedforward MLP network, an RNN can be thought of as the addition of loops to the architecture. For example, in a given layer, each neuron may pass its signal laterally (sideways) in addition to forward to the next layer. The output of the network may feedback as an input to the network with the next input vector and so on. The recurrent connections add state or memory to the network and allow it to learn and harness the ordered nature of observations within input sequences. Because of this ability to learn long term correlations in a sequence, LSTM networks obviate the need for a pre-specified time window and are capable of accurately modelling complex multivariate sequences. There are a number of RNNs, but it is the LSTM that delivers on the promise of RNNs for sequence prediction. It is why there is so much buzz and application of LSTMs at the moment.`
 
 We will develop a deep learning model using Recurrent Neural Network which will produce the sequence per below.
 
@@ -104,7 +104,7 @@ and its `Files` tab. From there you can click
 
 ![](https://github.com/RK-Sharath/demand_forecasting_using_deep_learning/blob/master/doc/source/images/add_file.png)
 
-Note: The data files are in the `data` directory. We need to insert sample_data.csv first followed by holdout_sample.csv as called out in the notebook. 
+Note: The data files are in the `data` directory. `We need to insert sample_data.csv first followed by holdout_sample.csv as called out in the notebook.`
 
 ## 5. Insert the DataFrame
 
@@ -138,39 +138,39 @@ There are several ways to execute the code cells in your notebook:
     
 ## 7. Analyze the results
 
-In this section, we will review the accuracy score of the model which has generated similar 'Mean Squared Error' values for training & validation data. We have achieved > 90% accuracy (Mean Absolute Percentage Error) with minimal training and optimal hyperparameters tuning which has resulted in striking a balance between accuracy & computation time. 
+In this section, we will review the accuracy score of the model which has generated similar `Mean Squared Error` values for training & validation data. We have achieved > 90% accuracy `(Mean Absolute Percentage Error)` with minimal training and optimal hyperparameters tuning which has resulted in striking a balance between accuracy & computation time. 
 
 ![](https://github.com/RK-Sharath/demand_forecasting_using_deep_learning/blob/master/doc/source/images/accuracy_check.PNG)
 
-We can also see the loss metric (error score) for training & validation data has a steady descent and converge at the end which means the learning from training data is effectively tested on the validation data. The optimum accuracy has been achieved with the configueration of the deep learning neural network architecture. 
+We can also see the `loss metric (error score)` for training & validation data has a steady descent and converge at the end which means the learning from training data is effectively tested on the validation data. The optimum accuracy has been achieved with the configueration of the deep learning neural network architecture. 
 
 ![](https://github.com/RK-Sharath/demand_forecasting_using_deep_learning/blob/master/doc/source/images/loss.PNG)
 
-The accuracy can be further enhanced using cross validation & Grid Search techniques however they are computationally intensive and should be performed on a 'GPU'.
+The accuracy can be further enhanced using cross validation & Grid Search techniques however they are computationally intensive and should be performed on a `GPU`.
 
 We can save the entire model, weights of the model, model architecture etc onto the storage to be reused at a later stage. 
 
-We have also demonstrated another concept called 'Transfer Learning' where we have used the trained model on new data and were able to generate accurate results. This is helpful if you have to generate forecasts quickly without spending time on training and not compromise on accuracy. 'Re-training would be required as per the variance in the data.'
+We have also demonstrated another concept called `Transfer Learning` where we have used the trained model on new data and were able to generate accurate results. This is helpful if you have to generate forecasts quickly without spending time on training and not compromise on accuracy. `Re-training would be required as per the variance in the data.`
 
 ## Some of the most commonly used parameters in a Deep Learning Model
 
-* One epoch = one forward pass and one backward pass of all the training examples
+* `One epoch` = one forward pass and one backward pass of all the training examples
 
-* Batch Size = The number of training examples in one forward/backward pass. The higher the batch size, the more memory space you'll need.
+* `Batch Size` = The number of training examples in one forward/backward pass. The higher the batch size, the more memory space you'll need.
 
-* Number of iterations = number of passes, each pass using [batch size] number of examples. To be clear, one pass = one forward pass + one backward pass (we do not count the forward pass and backward pass as two different passes). Example: if you have 1000 training examples, and your batch size is 500, then it will take 2 iterations to complete 1 epoch.
+* `Number of iterations` = number of passes, each pass using [batch size] number of examples. To be clear, one pass = one forward pass + one backward pass (we do not count the forward pass and backward pass as two different passes). Example: if you have 1000 training examples, and your batch size is 500, then it will take 2 iterations to complete 1 epoch.
 
-* Neurons = memory cells or computation cells or transmitters
+* `Neurons` = memory cells or computation cells or transmitters
 
-* Activation = Which controls the initializing of weights/neurons. (most popular ones are Tanh(Range(-1,1)) & ReLu(Range(0,1))
+* `Activation` = Which controls the initializing of weights/neurons. (most popular ones are Tanh(Range(-1,1)) & ReLu(Range(0,1))
 
-* Loss/Metric = A metric is a function that is used to judge the performance of your model. Metric functions are to be supplied in the metrics parameter when a model is compiled.
+* `Loss/Metric` = A metric is a function that is used to judge the performance of your model. Metric functions are to be supplied in the metrics parameter when a model is compiled.
 
-* Compilation = consolidate the learnings of the model from different layers. 
+* `Compilation` = consolidate the learnings of the model from different layers. 
 
-* Optimizers = Which controls the learning ability of the model. (Adam & RMSprop are widely used for regression problems)
+* `Optimizers` = Which controls the learning ability of the model. (Adam & RMSprop are widely used for regression problems)
 
-* Stateful/Stateless = Whether to remember the previous value to predict next value. 
+* `Stateful/Stateless` = Whether to remember the previous value to predict next value. 
 
 
 # Troubleshooting
